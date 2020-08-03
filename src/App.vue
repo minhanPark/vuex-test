@@ -1,21 +1,18 @@
 <template>
-  <div>
-    <h1>Vuex</h1>
-    <p>{{$store.state.language.language}}</p>
-    <Child></Child>
-  </div>
+  <v-app>
+    <div>
+      <Navigation></Navigation>
+      <router-view></router-view>
+    </div>
+  </v-app>
 </template>
 
 <script>
-import Child from "./components/Child.vue";
-
+import Navigation from "./components/Navigation.vue";
 export default {
   name: "App",
   components: {
-    Child,
+    Navigation,
   },
 };
 </script>
-
-<style>
-</style>
