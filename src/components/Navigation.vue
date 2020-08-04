@@ -2,6 +2,7 @@
   <div>
     <router-link to="/">인덱스 페이지</router-link>
     <router-link to="/list">리스트 페이지</router-link>
+    <router-link to="/test">테스트 페이지</router-link>
   </div>
 </template>
 

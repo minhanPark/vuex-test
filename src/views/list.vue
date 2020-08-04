@@ -8,20 +8,15 @@
       hide-default-footer
     ></v-data-table>
     <div>
-      <!-- <v-pagination
-        v-model="page"
-        :total-visible="7"
-        :length="numOfPages"
-        @input="setPage"
-      ></v-pagination> -->
-      <Pagination :page="page" :records="listLength"></Pagination>
+      <v-pagination v-model="page" :total-visible="7" :length="numOfPages" @input="setPage"></v-pagination>
+      <!-- <Pagination :page="page" :records="listLength"></Pagination> -->
     </div>
   </div>
 </template>
 
 <script>
 import { getTodos } from "../api/index";
-import Pagination from "vue-pagination-2";
+// import Pagination from "vue-pagination-2";
 
 export default {
   name: "list",
@@ -35,7 +30,7 @@ export default {
         { text: "completed", value: "completed" },
       ],
       page: 1,
-      dataPerPage: 10,
+      dataPerPage: 50,
     };
   },
   async created() {
@@ -47,9 +42,9 @@ export default {
       console.log(page);
     },
   },
-  components: {
-    Pagination,
-  },
+  // components: {
+  //   Pagination,
+  // },
   computed: {
     numOfPages() {
       return Math.ceil(this.todos.length / this.dataPerPage);
