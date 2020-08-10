@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import IndexView from "../views/index.vue";
 import ListView from "../views/list.vue";
 import TestView from "../views/test.vue";
+import Editable from "../views/editableList.vue";
+import Table from "../views/editTest.vue";
 import { store } from "../store/index";
 
 const guard = (to, from, next) => {
@@ -44,6 +46,14 @@ export const router = new VueRouter({
       //   console.log("beforeRouteLeave worked");
       //   next();
       // },
+    },
+    {
+      path: "/edit",
+      component: Editable,
+    },
+    {
+      path: "/table",
+      component: Table,
     },
   ],
 });

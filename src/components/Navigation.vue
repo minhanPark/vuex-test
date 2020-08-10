@@ -3,6 +3,8 @@
     <router-link to="/">인덱스 페이지</router-link>
     <router-link to="/list">리스트 페이지</router-link>
     <router-link to="/test">테스트 페이지</router-link>
+    <router-link to="/edit">수정 페이지</router-link>
+    <router-link to="/table">테이블 페이지</router-link>
   </div>
 </template>
 
