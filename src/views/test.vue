@@ -19,7 +19,7 @@
     <user-select>
       <template v-slot:header="{ user }">{{user}}</template>
     </user-select>
-    <CommonModal></CommonModal>
+    <CommonModal v-if="showModal"></CommonModal>
   </div>
 </template>
 
@@ -32,6 +32,11 @@ import CommonModal from "../components/CommonModal.vue";
 
 export default {
   name: "Test",
+  data() {
+    return {
+      showModal: true,
+    };
+  },
   computed: {
     ...mapGetters({
       getAuth: "auth/getLoginStatus",
