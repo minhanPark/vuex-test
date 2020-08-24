@@ -2,13 +2,7 @@
   <div>
     <v-data-table :headers="headers" :items="desserts">
       <template v-slot:item.name="props">
-        <v-edit-dialog
-          :return-value.sync="props.item.name"
-          @save="save"
-          @cancel="cancel"
-          @open="open"
-          @close="close"
-        >
+        <v-edit-dialog :return-value.sync="props.item.name" large @save="save" @open="open">
           {{ props.item.name }}
           <template v-slot:input>
             <v-text-field
@@ -21,15 +15,13 @@
           </template>
         </v-edit-dialog>
       </template>
-      <!-- <template v-slot:item.iron="props">
+      <template v-slot:item.iron="props">
         <v-edit-dialog
           :return-value.sync="props.item.iron"
           large
           persistent
           @save="save"
-          @cancel="cancel"
           @open="open"
-          @close="close"
         >
           <div>{{ props.item.iron }}</div>
           <template v-slot:input>
@@ -41,12 +33,11 @@
               :rules="[max25chars]"
               label="Edit"
               single-line
-              counter
               autofocus
             ></v-text-field>
           </template>
         </v-edit-dialog>
-      </template>-->
+      </template>
     </v-data-table>
 
     <v-snackbar v-model="snack" :timeout="3000" :color="snackColor">
@@ -170,19 +161,19 @@ export default {
       this.snackColor = "success";
       this.snackText = "Data saved";
     },
-    cancel() {
-      this.snack = true;
-      this.snackColor = "error";
-      this.snackText = "Canceled";
-    },
+    // cancel() {
+    //   this.snack = true;
+    //   this.snackColor = "error";
+    //   this.snackText = "Canceled";
+    // },
     open() {
       this.snack = true;
       this.snackColor = "info";
       this.snackText = "Dialog opened";
     },
-    close() {
-      console.log("Dialog closed");
-    },
+    // close() {
+    //   console.log("Dialog closed");
+    // },
   },
 };
 </script>

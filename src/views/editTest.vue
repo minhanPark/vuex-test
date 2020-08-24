@@ -16,10 +16,16 @@
         </v-edit-dialog>
       </template>
     </v-data-table>
+    <CommonModal :dialog="showErrorModal">
+      <v-btn slot="footer" v-on:click="showErrorModal = false">닫기</v-btn>
+    </CommonModal>
   </div>
 </template>
 
 <script>
+import CommonModal from "../components/CommonModal.vue";
+import Bus from "../utils/bus";
+
 export default {
   data() {
     return {
@@ -32,6 +38,7 @@ export default {
         { text: "foo", value: "count3" },
         { text: "bar", value: "count4" },
       ],
+      showErrorModal: true,
       desserts: [
         {
           name: "23",
@@ -82,11 +89,12 @@ export default {
     save(item) {
       console.log(item);
       this.snack = true;
-      item.count2 = Number(item.name) + 20;
-      item.count3 = Number(item.name) + 30;
+      // item.count2 = Number(item.name) + 20;
+      item.count3 = Number(item.name) + Number(item.count2);
       item.count4 = Number(item.name) + 40;
       this.snackColor = "success";
       this.snackText = "Data saved";
+      this.showErrorModal = true;
     },
     cancel() {
       this.snack = true;
@@ -101,6 +109,15 @@ export default {
     close() {
       console.log("Dialog closed");
     },
+  },
+  components: {
+    CommonModal,
+  },
+  created() {
+    Bus.$emit("start:spinner");
+    setTimeout(() => {
+      Bus.$emit("end:spinner");
+    }, 5000);
   },
 };
 </script>
