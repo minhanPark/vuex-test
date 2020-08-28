@@ -5,13 +5,11 @@ import ListView from "../views/list.vue";
 import TestView from "../views/test.vue";
 import Editable from "../views/editableList.vue";
 import Table from "../views/editTest.vue";
-import { store } from "../store/index";
 
 const guard = (to, from, next) => {
   console.log("beforeEnter worked");
-  console.log("to is", to);
-  console.log("from is", from);
-  console.log("beforeEnter store", store.state);
+  console.log(to, from);
+  console.log("--------------------------");
   next();
 };
 
@@ -24,6 +22,7 @@ export const router = new VueRouter({
       path: "/",
       name: "indexPage",
       component: IndexView,
+      beforeEnter: guard,
     },
     {
       path: "/list",
@@ -33,6 +32,7 @@ export const router = new VueRouter({
     {
       path: "/test",
       component: TestView,
+      beforeEnter: guard,
       // beforeEnter(to, from, next) {
       //   console.log("beforeEnter worked");
       //   console.log(to, from);
@@ -61,28 +61,23 @@ export const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // 네비게이션이 트리거될 때마다 가드가 작성 순서에 따라 호출되기 전의 모든 경우에 발생
   console.log("beforeEach worked");
-  console.log("---------------------------------");
-  for (let i = 0; i < localStorage.length; i++) {
-    console.log(localStorage.key(i));
-  }
-  console.log("---------------------------------");
-  console.log("to is", to);
-  console.log("from is", from);
+  console.log(to, from);
+  console.log("-----------------------");
   next();
   // 만약에 프로젝트에서 사용한다고 하면 어떻게 사용할 수 있을까?
   // 로컬 스토리지에 옵타움 티켓이 존재하는 지 유무를 확인하고 없으면 로그인 페이지로 보낸다.
 });
 
-// router.beforeResolve((to, from, next) => {
-//   //모든 컴포넌트 가드와 비동기 라우트 컴포넌트를 불러온 후 네비게이션 가드를 확인하기 전에 호출
-//   console.log("beforeResolve worked");
-//   console.log("to is", to);
-//   console.log("from is", from);
-//   next();
-// });
+router.beforeResolve((to, from, next) => {
+  //모든 컴포넌트 가드와 비동기 라우트 컴포넌트를 불러온 후 네비게이션 가드를 확인하기 전에 호출
+  console.log("beforeResolve worked");
+  console.log(to, from);
+  console.log("---------------------------------------");
+  next();
+});
 
-// router.afterEach((to, from) => {
-//   console.log("afterEach worked");
-//   console.log("to is", to);
-//   console.log("from is", from);
-// });
+router.afterEach((to, from) => {
+  console.log("afterEach worked");
+  console.log(to, from);
+  console.log("------------------------------------------");
+});

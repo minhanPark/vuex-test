@@ -53,6 +53,12 @@ export default {
       return this.todos.length;
     },
   },
+  beforeRouteEnter(to, from, next) {
+    console.log("beforeRouteEnter worked");
+    console.log(to, from);
+    console.log("------------------------------");
+    next();
+  },
 };
 </script>
 

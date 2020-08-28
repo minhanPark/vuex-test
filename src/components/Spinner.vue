@@ -1,8 +1,10 @@
 <template>
-  <div class="lds-facebook" v-if="loading">
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="position" v-if="loading">
+    <div class="lds-facebook">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </template>
 
@@ -18,6 +20,15 @@ export default {
 </script>
 
 <style>
+.position {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .lds-facebook {
   display: inline-block;
   position: absolute;
@@ -25,6 +36,7 @@ export default {
   height: 64px;
   top: 47%;
   left: 47%;
+  z-index: 99;
 }
 .lds-facebook div {
   display: inline-block;

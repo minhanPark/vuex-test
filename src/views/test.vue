@@ -51,10 +51,14 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     console.log("beforeRouteEnter worked");
-    if (to.query.redirectForm) {
-      console.log(to.query.redirectForm);
-      next();
-    }
+    console.log(to, from);
+    console.log("------------------------------");
+    next();
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log("beforeRouteLeave worked");
+    console.log(to, from);
+    console.log("------------------------------");
     next();
   },
 };

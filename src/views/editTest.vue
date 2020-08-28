@@ -16,14 +16,14 @@
         </v-edit-dialog>
       </template>
     </v-data-table>
-    <CommonModal :dialog="showErrorModal">
+    <!-- <CommonModal :dialog="showErrorModal">
       <v-btn slot="footer" v-on:click="showErrorModal = false">닫기</v-btn>
-    </CommonModal>
+    </CommonModal>-->
   </div>
 </template>
 
 <script>
-import CommonModal from "../components/CommonModal.vue";
+// import CommonModal from "../components/CommonModal.vue";
 import Bus from "../utils/bus";
 
 export default {
@@ -111,7 +111,7 @@ export default {
     },
   },
   components: {
-    CommonModal,
+    //CommonModal,
   },
   created() {
     Bus.$emit("start:spinner");
