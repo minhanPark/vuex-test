@@ -5,6 +5,8 @@ import ListView from "../views/list.vue";
 import TestView from "../views/test.vue";
 import Editable from "../views/editableList.vue";
 import Table from "../views/editTest.vue";
+import ColumnTable from "../views/columnTable.vue";
+import FormTest from "../components/FormTest.vue";
 
 const guard = (to, from, next) => {
   console.log("beforeEnter worked");
@@ -54,6 +56,14 @@ export const router = new VueRouter({
     {
       path: "/table",
       component: Table,
+    },
+    {
+      path: "/column",
+      component: ColumnTable,
+    },
+    {
+      path: "/form-test",
+      component: FormTest,
     },
   ],
 });

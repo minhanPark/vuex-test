@@ -5,6 +5,8 @@
     <router-link to="/test">테스트 페이지</router-link>
     <router-link to="/edit">수정 페이지</router-link>
     <router-link to="/table">테이블 페이지</router-link>
+    <router-link to="/column">컬럼 고정</router-link>
+    <router-link to="/form-test">테이블</router-link>
   </div>
 </template>
 

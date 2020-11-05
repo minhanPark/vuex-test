@@ -20,6 +20,9 @@
       <template v-slot:header="{ user }">{{user}}</template>
     </user-select>
     <CommonModal v-if="showModal"></CommonModal>
+    <FormTest v-bind:person="person"></FormTest>
+    <InputTest v-model="checked"></InputTest>
+    <button v-on:click="handleClick">클릭</button>
   </div>
 </template>
 
@@ -29,12 +32,16 @@ import SubmitButton from "../components/SubmitButton.vue";
 import BaseLayout from "../components/BaseLayout.vue";
 import UserSelect from "../components/UserSelect.vue";
 import CommonModal from "../components/CommonModal.vue";
+import FormTest from "../components/FormTest";
+import InputTest from "../components/InputTest";
 
 export default {
   name: "Test",
   data() {
     return {
       showModal: true,
+      person: {},
+      checked: true,
     };
   },
   computed: {
@@ -48,6 +55,8 @@ export default {
     BaseLayout,
     UserSelect,
     CommonModal,
+    FormTest,
+    InputTest,
   },
   beforeRouteEnter(to, from, next) {
     console.log("beforeRouteEnter worked");
@@ -60,6 +69,16 @@ export default {
     console.log(to, from);
     console.log("------------------------------");
     next();
+  },
+  methods: {
+    handleClick() {
+      console.log("클릭");
+      this.person = {
+        name: "박민한",
+        age: "30",
+        nickname: "runningwater",
+      };
+    },
   },
 };
 </script>

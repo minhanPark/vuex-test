@@ -14,6 +14,7 @@
     "vue": "^2.6.11",
     "vue-pagination-2": "^2.0.3",
     "vue-router": "^3.3.4",
+    "vue-table-dynamic": "^0.3.3",
     "vuetify": "^2.2.11",
     "vuex": "^3.5.1"
   },

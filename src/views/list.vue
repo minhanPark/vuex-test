@@ -6,6 +6,8 @@
       :items-per-page="dataPerPage"
       :page.sync="page"
       hide-default-footer
+      :height="500"
+      :fixed-header="true"
     ></v-data-table>
     <div>
       <v-pagination v-model="page" :total-visible="7" :length="numOfPages" @input="setPage"></v-pagination>
@@ -62,4 +64,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.v-data-table__wrapper {
+  border-radius: 5px;
+  min-height: 282px;
+  border: 1px solid #aaaaaa;
+}
+</style>
